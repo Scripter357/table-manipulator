@@ -161,7 +161,7 @@ if __name__ == "__main__":
 		print("")
 	"""
 	
-	#Overall profit. O(n)
+	#Overall profit.
 	profit = 0
 	for key in table:
 		entry = table[key]
@@ -181,13 +181,11 @@ if __name__ == "__main__":
 	logger.log("Most sold:")
 	timesSold = array[-1][1]
 	logger.log(table[array[-1][0]].dict['Название товара']," : ",timesSold)
-	sliceForReportSold = [(table[array[-1][0]].dict['Название товара'],timesSold)]
 	if not len(array) < 2: # If for whatever reason we only have one entry, the following code will crash.
 		i = 2
 		nextBest = array[-i][1]
 		while nextBest == timesSold:
 			logger.log(table[array[-i][0]].dict['Название товара']," : ",timesSold)
-			sliceForReportSold.append((table[array[-i][0]].dict['Название товара'],timesSold))
 			i+=1
 			if i >= len(array): # In case we somehow end up at the begining of the array
 				break
@@ -205,13 +203,11 @@ if __name__ == "__main__":
 	logger.log("Most profitable:")
 	profitFromProduct = array[-1][1]
 	logger.log(table[array[-1][0]].dict['Название товара']," : ",profitFromProduct)
-	sliceForReportProfit = [(table[array[-1][0]].dict['Название товара'],profitFromProduct)]
 	if not len(array) < 2: # If for whatever reason we only have one entry, the following code will crash.
 		i = 2
 		nextBest = array[-i][1]
 		while nextBest == profitFromProduct:
 			logger.log(table[array[-i][0]].dict['Название товара']," : ",profitFromProduct)
-			sliceForReportProfit.append((table[array[-i][0]].dict['Название товара'],profitFromProduct))
 			i+=1
 			if i >= len(array): # In case we somehow end up at the begining of the array
 				break
